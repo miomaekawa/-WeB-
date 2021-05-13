@@ -1,0 +1,4767 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* 高さいっぱいの要素を表示する方法 */
+.my-element {
+    height: 100vh; /* 変数をサポートしていないブラウザのフォールバック */
+    height: calc(var(--vh, 1vh) * 100);
+  }
+
+/* ローディング中は非表示 */
+  #main {
+    display: none;
+}
+
+/* ▼ ローディング画面 ▼*/
+
+  #loading {
+    width: 100vw;
+    height: 100vh;
+    transition: all 1s;
+    background: #000;
+    
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100001;
+  }
+  .loaded {
+    opacity: 0;
+    visibility: hidden;
+  }
+ 
+
+  /* 中のローディングアニメ */
+  /*▼ ローディング % ▼*/
+#loadingp {
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    width: 400px;
+    padding: 15px 20px;
+    margin: -70px 0 0 -220px;
+   
+}
+#loadingp #percent {
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 16px;
+}
+#loadingp #gauge {
+    width: 0px;
+    height: 5px;
+    background: #fff;
+}
+ /*▲ ローディング % ▲*/
+
+
+  .load_logo img {
+    width: 300px;
+    height: auto;
+    position: absolute;
+    top: calc(70% - 150px);
+    left: calc(50% - 150px);
+  }
+ 
+  .loader {
+    position: absolute;
+    top: calc(50% - 192px);
+    left: calc(50% - 192px);
+    width: 384px;
+    height: 384px;
+    border-radius: 50%;
+    perspective: 800px;
+  }
+  
+  .inner {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;  
+  }
+  
+  .inner.one {
+    left: 0%;
+    top: 0%;
+    animation: rotate-one 1s linear infinite;
+    border-bottom: 3px solid #EFEFFA;
+  }
+  
+  .inner.two {
+    right: 0%;
+    top: 0%;
+    animation: rotate-two 1s linear infinite;
+    border-right: 3px solid #EFEFFA;
+  }
+  
+  .inner.three {
+    right: 0%;
+    bottom: 0%;
+    animation: rotate-three 1s linear infinite;
+    border-top: 3px solid #EFEFFA;
+  }
+  
+  @keyframes rotate-one {
+    0% {
+      transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+    }
+    100% {
+      transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+    }
+  }
+  
+  @keyframes rotate-two {
+    0% {
+      transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+    }
+    100% {
+      transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+    }
+  }
+  
+  @keyframes rotate-three {
+    0% {
+      transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+    }
+    100% {
+      transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+    }
+  }
+  
+ /* ▲ ローディング画面 ▲ */
+
+ 
+
+/* 基本設定 PC*/
+html {
+    font-size: 62.5%;
+    background-color: rgb(0, 0, 0);
+}
+#width {
+   width: 1200px;
+   margin: 0 auto;
+   overflow: hidden;
+   /* background-color: rgb(226, 92, 238); */
+
+}
+
+body {
+
+    font-size: 1.6rem;
+    color: white;
+    background-color: #000;
+    font-family: 'Cormorant Infant', 'YuMincho','Hiragino Pro', 'YuGothic','Meiryo', serif;
+    line-height: 34px;
+}
+
+
+/* h1 h2 h3 PC*/
+h1{
+    font-size: 6rem;
+    font-weight: 200;
+    line-height: 62px;
+   
+}
+
+
+h2 {
+    font-size: 8rem;
+    font-weight:100;
+    /* margin-top: 342px; */
+}
+
+h3 {
+    font-size: 4rem;
+    font-weight: 100;
+}
+
+
+
+ /* アンカーリンク先表示は固定ヘッダの高さ分を差し引く */
+html {
+    scroll-padding-top: 180px;
+  }
+
+
+/* header PC*/
+#header {
+    width: 1200px;
+    z-index: 9999;
+    position: fixed;
+    top: 0px;
+    height:80px;
+    background-color: rgb(0, 0, 0);
+    /* background-color: rgb(3, 167, 139); */
+
+
+}
+/* ↓ Global navi↓ PC*/
+.rogo {
+    padding:6px 0px 20px 110px ;
+}
+#global-nav {
+    position: relative;
+}
+.nav-list {
+    position: absolute;
+    top: 44px;
+    left: 320px;
+}
+
+#global-nav ul{
+    display: flex;
+    list-style: none;  
+    
+}
+
+#global-nav li a {
+    text-decoration: none;
+    color: white;
+}
+.nav {
+    margin-top: 36px;
+    display: flex;
+}
+
+
+
+.a {
+    padding: 46px 40px 20px 80px;
+}
+.t {
+    padding: 46px 40px 20px 0px;
+}
+.h {
+    padding: 46px 40px 20px 0px;
+}
+.n {
+    padding: 46px 40px 20px 0px;
+}
+.d{
+    padding: 46px 40px 20px 0px;
+}
+.f{
+    padding: 46px 40px 20px 0px;
+}
+.c {
+    padding: 46px 0px 20px 0px;
+}
+
+
+/* h1アニメーション */
+  .h1anime {/*各テキストにanimationを設定*/
+    color: transparent;/*テキストを透明にしてtext-shadowだけ表示する*/
+    animation: blur 10s ease-out;
+    animation-fill-mode: forwards;
+  }
+  .h1anime.da {/*一文字ずつ遅延させる*/
+    animation-delay: 0.1s;
+    
+ }   
+  .h1anime.nh1 {
+    animation-delay: 0.2s;
+    
+ }   
+  .h1anime.su {
+    animation-delay: 0.3s;
+    
+    
+ }   
+  .h1anime.pu {
+     animation-delay: 0.4s;
+     
+  }
+  .h1anime.ro {
+    animation-delay: 0.5s;
+    
+  }
+  .h1anime.ji {
+    animation-delay: 0.6s;
+    
+  }
+  .h1anime.e {
+    animation-delay: 0.7s;
+    
+  }
+  .h1anime.ku {
+    animation-delay: 0.8s;
+    
+  }
+  .h1anime.to2 {
+    animation-delay: 0.9s;
+    
+  }
+ 
+   
+  @keyframes blur {/*opacityとtext-shadow+animationでフェードインを表現する*/
+  0%    {text-shadow:  0 0 100px #fff; opacity:0;}
+  5%    {text-shadow:  0 0 90px #fff;}
+  15%    {opacity: 1;}
+  20%    {text-shadow:  0 0 0px #fff;}
+  80%    {text-shadow:  0 0 0px #fff;}
+  85%    {text-shadow:  0 0 0px #fff;}
+  95%   {text-shadow:  0 0 0px #fff;}
+  100% {text-shadow:  0 0 0px #fff;}
+  }
+
+#navi-mv {
+    opacity:0;  
+    
+}
+
+
+/* メインビジュアル */
+
+.mv {
+    position: relative;
+    height: 83%;
+    
+
+    /* background-color: rgb(104, 104, 104); */
+}
+.mv_sp { 
+    display: none 
+}
+.mv h1 {
+    position: absolute;
+    top: 76%;
+    left: 45%;
+}
+.nh1 {
+    position: absolute; 
+    top: 50%;
+    left: 18%;
+
+}
+.su {
+    position: absolute; 
+    top: 50%;
+    left: 33.5%;
+
+}
+.pu {
+    position: absolute; 
+    top: 60%;
+    left: 50%;
+    /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+}
+.ro {
+    position: absolute;
+    top: 74%;
+    left: 67%; 
+    /* text-shadow: rgba(255, 255, 255, 0.6) 2px 2px 20px, rgba(255, 255, 255, 0.8) 2px 2px 20px; */
+}
+.ji {
+    position: absolute; 
+    top: 87%;
+    left: 83%;
+    /* text-shadow: rgba(255, 255, 255, 1) 2px 2px 20px, rgba(255, 255, 255, 0.9) 2px 2px 20px; */
+}
+.e {
+    position: absolute; 
+    top: 72%;
+    left: 101%;
+    /* text-shadow: rgba(255, 255, 255, 0.6) 2px 2px 20px, rgba(255, 255, 255, 0.8) 2px 2px 20px; */
+}
+.ku {
+    position: absolute; 
+    top: 60%;
+    left: 118%;
+    /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+}
+.to2 {
+    position: absolute; 
+    top: 50%;
+    left: 133%;
+}
+
+/* 画像ver */
+
+
+.box1 {
+    height:120px;
+    background-color: #000;
+    position: relative; /* ここ追記 */
+    overflow: hidden;  
+}
+
+
+/* ↓ About Us↓ */
+#about-us {
+    width: 1200px;
+    /* background-color: rgba(187, 12, 12, 0.61); */
+}
+.watashitati {
+    margin-top: 20px;
+    margin-left: 140px;
+}
+
+.h2anime {
+    color: transparent;/*テキストを透明にしてtext-shadowだけ表示する*/
+}
+
+.startanime{
+    /* ブラーで10sで高速で動き出し、最後に減速 */
+    animation: blur 10s ease-out;
+    /* アニメーション再生後前面に来てね */
+    animation-fill-mode: forwards; 
+}
+.aboutus_h2 {
+    margin-left: 130px;
+    position: relative;
+    /* background-color: rgb(189, 64, 64); */
+}
+.aa{
+    animation-delay: 0.1s;
+}
+.ab{
+    animation-delay: 0.2s;
+    position: absolute;
+    top: 0%;
+    left: 5.2%;
+}
+.ao{
+    animation-delay: 0.3s;
+    position: absolute;
+    top: 24%;
+    left: 8.8%;
+    /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+}
+
+.au{
+    animation-delay: 0.4s;
+    position: absolute;
+    top: 52%;
+    left: 12.5%;
+    /* text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+}
+.at{
+    animation-delay: 0.5s;
+    position: absolute;
+    top: 78%;
+    left: 16%;
+    /* text-shadow: rgba(255, 255, 255, 0.7) 2px 2px 20px, rgba(255, 255, 255, 0.8) 2px 2px 20px; */
+}
+.aU{
+    animation-delay: 0.6s;
+    position: absolute;
+    top: 52%;
+    left: 19.5%;
+    /* text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+}
+.as{
+    animation-delay: 0.7s;
+    position: absolute;
+    top: 24%;
+    left: 24.8%;
+    /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+}
+
+
+  @keyframes blur {/*opacityとtext-shadow+animationでフェードインを表現する*/
+    0%    {text-shadow:  0 0 100px #fff; opacity:0;}
+  5%    {text-shadow:  0 0 90px #fff;}
+  15%    {opacity: 1; }
+  20%    {text-shadow:  0 0 0px #fff;}
+  80%    {text-shadow:  0 0 0px #fff;}
+  85%    {text-shadow:  0 0 0px #fff;}
+  95%   {text-shadow:  0 0 0px #fff;}
+  100% {text-shadow:  0px 0px 0px #fff;}
+  }
+
+.first {
+     /* background-color: rgba(185, 236, 67, 0.1); */
+    position: relative;
+}
+
+.fadeIn {
+    transform: translate3d(0, 50px, 100px);
+    transition: 3.0s;
+    opacity: 0;
+    /* background-color: rgb(255, 0, 0); */
+}
+.fadeIn.animated {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+}
+/* パソコンで見たときは"pc"のclassがついた画像が表示される */
+
+
+
+
+
+
+.pic2_pc { display: block }
+.pic2_sp { display: none }
+
+.pic1_pc { 
+    display: block 
+}
+.pic1_sp { display: none }
+
+/* ヘッダーのスクロール */
+.header_scroll {
+    opacity: 0;
+    transition: 6.5s; 
+    z-index: 9999;
+    position: absolute;
+}
+.header_scroll.header_animated{
+    opacity: 1;
+}
+
+
+/* about-us動画 */
+.about-us_mv video{
+    min-width: 100%;
+    min-height: 100%; 
+}
+
+  /* =======================
+  ここまでSP完了
+  ======================= */
+/* ↓ いちごいちえ とは…↓ */
+
+
+
+.first {
+    position: relative;
+    /* background-color: rgb(163, 56, 56); */
+   
+}
+
+.pic2_pc img{   
+    opacity: 1;
+}
+
+    
+.pic1 {
+    position: absolute;
+    top: -90px;
+    right: 0;
+
+    
+}
+
+
+.pic-both {
+    display: flex;
+    
+}
+.pic1 {
+    position: relative;
+}
+
+.ichigiichietoha {
+    position: absolute;
+    top: 53%;
+    left: 50%;
+}
+.aichi{
+    position: relative;
+}
+
+.ago {
+    position: absolute;
+    left: 100%;
+}
+.ai {
+    position: absolute;
+    left: 150%;
+}
+.achi {
+    position: absolute;
+    left: 200%;
+}
+.ae {
+    position: absolute;
+    left: 250%;
+}
+.ato {
+    position: absolute;
+    left: 300%;
+}
+.aha {
+    position: absolute;
+    left: 350%;
+}
+
+.h3anime {
+    transition: 7s;
+}
+.startanime_h3 {
+    text-shadow: rgba(255, 255, 255, 0.7) 2px 2px 20px, rgba(255, 255, 255, 0.8) 2px 2px 20px;
+}
+.h4anime {
+    transition: 3s;
+}
+.startanime_h4 {
+    text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px;
+}
+.h5anime {
+    transition: 3s;
+}
+.startanime_h5 {
+    text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px;
+}
+.kotowaza_pc { display: block }
+.kotowaza_sp { display: none }
+.kotowaza_pc {
+
+
+    width: auto;
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    line-height: 270%;
+}
+
+/* // スクロールした時に要素が可視範囲に入ったらフェードイン表示させる */
+
+.about-us {
+    opacity: 0;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    -ms-transition: all 1s;
+    transition: all 1s;
+}
+.about-us {
+    opacity: 1;
+}
+
+
+
+/* ↓ 志↓ */
+
+
+.kokorozashi-div {
+    position: relative;
+    /* background-color: rgb(37, 146, 23); */
+    
+  
+}
+
+/* kokorozashi 動画 */
+.kokorozashi_mv video{
+    min-width: 100%;
+    min-height: 100%; 
+}
+
+.k_pic1_pc { display: block }
+.k_pic1_sp { display: none }
+.k_pic1_pc {
+    /* background-color: rgb(230, 19, 19); */
+    margin-top: -80px;
+}
+
+.k_pic2_pc { display: block }
+.k_pic2_sp { display: none }
+.k_pic2_pc img{
+    position: absolute;
+    right: 0%;
+    top: 24%;
+    z-index: -10;
+   
+}
+
+
+.kokorozashi{
+    position: absolute;
+    top: 51%;
+    left: 18%;
+}
+.kokorozashi-hiragana {
+    font-size: 3rem;
+}
+
+.kohaihun {
+    position: relative;
+ 
+}
+.koko1 {
+    position: absolute;
+    left: 100%;
+}
+.koko2 {
+    position: absolute;
+    left: 140%;
+}
+
+.koro {
+    position: absolute;
+    left: 180%;
+}
+.koza {
+    position: absolute;
+    left: 220%;
+}
+.koshi  {
+    position: absolute;
+    left: 260%;
+}
+.kohaihun2 {
+    position: absolute;
+    left: 300%;
+}
+
+.inochi {
+    position: absolute;
+    line-height: 270%;
+    top: 56%;
+    left: 18%;
+}
+.arabesuku {
+    position: absolute;
+    top: 77%;
+    left: 15%;
+    /* background-color: rgb(121, 25, 25); */
+}
+
+
+.arabesuku img {
+    width: 30%;
+    z-index: 100;  /* 質問３ z-index:100;をかけています*/
+}
+
+/* box2 */
+.box2 {
+    width: 100%;
+    height: 342px;
+    z-index: -100;  /* 質問３ z-index:-100;をかけています*/
+
+    /* background-color: rgb(17, 173, 64); */
+}
+
+/* ↓ Takashiro Yuki↓ */
+
+#takashiro-yuki {
+    margin-top: -210px;
+    position: relative;
+  
+}
+
+/* h2アニメーション */
+.h2anime {
+    color: transparent;
+  }
+
+.startanime {
+    animation: blur 10s ease-out;
+    animation-fill-mode: forwards;
+}
+.taka_h2 {
+    margin-left: 130px;
+    position: relative;
+    height: 33.33px;
+    /* background-color: pink; */
+}
+.shusai {
+    margin-top: 20px;
+    margin-left: 140px;
+}
+.tat {/*一文字ずつ遅延させる*/
+    animation-delay: 0.1s;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    
+ }   
+ .taa {
+    animation-delay: 0.2s;
+    position: absolute;
+    top: 0%;
+    left: 3.5%;
+    
+ }   
+ .tak {
+    animation-delay: 0.3s;
+    position: absolute;
+    top: 0%;
+    left: 7%;
+    
+ }   
+ .taa2 {
+     animation-delay: 0.4s;
+     position: absolute;
+     top: 0%;
+     left: 10.6%;
+     
+  }
+ .tas {
+    animation-delay: 0.5s;    
+    position: absolute;
+    top: 0%;
+    left: 14.2%;
+
+    
+  }
+ .tah {
+    animation-delay: 0.6s;
+    position: absolute;
+    top: 10%;
+    left: 16.6%;
+    
+  }
+ .tai {
+    animation-delay: 0.7s;
+    position: absolute;
+    top: 26%;
+    left: 20.1%;
+    text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px;
+    
+  }
+  .tar {
+    animation-delay: 0.8s;
+    position: absolute;
+    top: 36%;
+    left: 22%;
+    text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px;
+    
+  }
+  .tao {
+    animation-delay: 0.9s;
+    position: absolute;
+    top: 57%;
+    left: 24.2%;
+    text-shadow: rgba(255, 255, 255, 0.7) 2px 2px 20px, rgba(255, 255, 255, 0.8) 2px 2px 20px;
+    
+  }
+  .taY {
+    animation-delay: 1.0s;
+    position: absolute;
+    top: 36%;
+    left: 28.5%;
+    text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px;
+    
+  }
+  .tau {
+    animation-delay: 1.1s;
+    position: absolute;
+    top: 26%;
+    left: 32%;
+    text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px;
+    
+  }
+  .tak2 {
+    animation-delay: 1.2s;
+    position: absolute;
+    top: 10%;
+    left: 35.4%;
+    
+  }
+  .tai2 {
+    animation-delay: 1.3s;
+    position: absolute;
+    left: 39.2%;
+    
+  }
+ 
+
+  @keyframes blur {/*opacityとtext-shadow+animationでフェードインを表現する*/
+    0%    {text-shadow:  0 0 100px #fff; opacity:0;}
+  5%    {text-shadow:  0 0 90px #fff;}
+  15%    {opacity: 1;}
+  20%    {text-shadow:  0 0 0px #fff;}
+  80%    {text-shadow:  0 0 0px #fff;}
+  85%    {text-shadow:  0 0 0px #fff;}
+  95%   {text-shadow:  0 0 0px #fff;}
+  100% {text-shadow:  0 0 0px #fff;}
+  }
+
+
+/* yuki 動画 */
+.yuki_mv video{
+    min-width: 100%;
+    min-height: 100%; 
+ 
+}
+
+#takashiro-yuki {
+    margin-top: 20px;
+}
+.yuki_pc{
+    margin-top: 0.8%;
+    margin-left: 20%;  
+    width: 78%;
+}
+.yuki_pc { display: block; }
+.yuki_sp { display: none; }
+   
+.takashiro-kanji {
+    position: absolute;
+    margin-top: -48%;
+    margin-left: 50%; 
+}
+.frigana {
+    font-size: 2rem;
+    position: absolute;
+    margin-top: -45%;
+    margin-left: 51.5%;
+}
+
+
+
+.takatak {
+    position: relative;
+ 
+}
+.takashiro {
+    position: absolute;
+    left: 110%;
+}
+.takayu {
+    position: absolute;
+    left: 220%;
+}
+.takaki {
+    position: absolute;
+    left: 330%;
+}
+
+.takataka {
+    text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.5) 2px 2px 20px;
+}
+.takashiro {
+    text-shadow: rgba(255, 255, 255, 0.7) 2px 2px 20px, rgba(255, 255, 255, 0.7) 2px 2px 20px;
+
+}
+.takayu {
+    text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.5) 2px 2px 20px;
+}
+.takaki {
+    text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.3) 2px 2px 20px;
+}
+
+.ids {
+    position: absolute;
+    margin-top: -40%;
+    margin-left: 50%;
+
+
+}
+
+
+
+.sensai {
+    display: block;
+    position: absolute;
+    margin-top: -32%;
+    margin-left: 50%;
+    line-height: 270%;
+}
+.sensai_sp{display: none;}
+
+.teacher {
+    width: 40%; 
+    margin-top: -6%;
+    margin-left: 17%;
+    position: relative;
+
+    /* background-color: rgb(32, 159, 243); */
+
+}
+
+/* box3 */
+.box3 {
+    width: 100%;
+    height: 342px;
+    background-color:#000;
+
+}
+/* history_mv */
+.history_mv video{
+    min-width: 100%;
+    min-height: 100%; 
+}
+
+/* ↓ History↓ */ 
+
+#history {
+    margin-top: -540px;
+    position: relative;
+    /* background-color: rgb(114, 0, 245,0.3); */
+}
+
+
+.h2anime {
+    color: transparent;
+  }
+
+.startanime {
+    animation: blur 10s ease-out;
+    animation-fill-mode: forwards;
+}
+.history-h2 {
+    margin-left: 130px;
+    position: relative;
+}
+
+.hh {/*一文字ずつ遅延させる*/
+    animation-delay: 0.1s;
+    
+ }   
+ .hi {
+    animation-delay: 0.2s;
+    position: absolute;
+    top: 0%;
+    left: 5.8%;
+    
+ }   
+ .hs {
+    animation-delay: 0.3s;
+    position: absolute;
+    top: 28%;
+    left: 7.7%;
+    /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+ }   
+ .ht {
+     animation-delay: 0.4s;
+     position: absolute;
+     top: 50%;
+     left: 10.1%;
+     /* text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+     
+  }
+ .ho{
+    animation-delay: 0.5s;
+    position: absolute;
+    top: 68%;
+    left: 12.5%;
+    /* text-shadow: rgba(255, 255, 255, 0.7) 2px 2px 20px, rgba(255, 255, 255, 0.8) 2px 2px 20px; */
+    
+  }
+  .hr {
+    animation-delay: 0.6s;
+    position: absolute;
+    top: 50%;
+    left: 15.8%;
+    /* text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+    
+  }
+  .hy {
+    animation-delay: 0.7s;
+    position: absolute;
+    top: 28%;
+    left: 18.6%;
+    /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+    
+  }
+
+
+  @keyframes blur {/*opacityとtext-shadow+animationでフェードインを表現する*/
+    0%    {text-shadow:  0 0 100px #fff; opacity:0;}
+  5%    {text-shadow:  0 0 90px #fff;}
+  15%    {opacity: 1;}
+  20%    {text-shadow:  0 0 0px #fff;}
+  80%    {text-shadow:  0 0 0px #fff;}
+  85%    {text-shadow:  0 0 0px #fff;}
+  95%   {text-shadow:  0 0 0px #fff;}
+  100% {text-shadow:  0 0 0px #fff;}
+  }
+
+.kathudou {
+    margin-top: 20px;
+    margin-left: 140px;
+}
+
+
+.title {
+    font-size: 1.6rem;
+    margin-left: 130px;
+    line-height: 170%;
+     margin-top: -4px;
+     -moz-user-select: -moz-none;
+     -ms-user-select: none;
+     -webkit-user-select: none;
+     user-select: none;
+}
+
+
+
+/* Slick */
+/*左右の矢印の色を変える*/
+.slick-prev:before,
+.slick-next:before {
+    color: #000;
+}
+/*左右の矢印の位置を変える*/
+.slick-next {
+    right: 20px;
+    z-index: 99;
+}
+.slick-prev {
+     left: 15px;
+    z-index: 100;
+}
+/*スライド数のドットの色を変える*/
+.slick-dots li.slick-active button:before,
+.slick-dots li button:before {
+    color: #fff;
+}
+/*スライド画像の横幅可変*/
+img {
+    max-width: 100%;
+     height: auto;
+     
+}
+
+.slider {
+	margin: 0 0 50px;
+}
+.slider img {
+	width: 100%;
+	height: auto;
+}
+.single-item {
+	max-width: 600px;
+	margin: 0 auto 50px;
+}
+.slick-prev::before, .slick-next::before {
+	font-size: 24px;
+}
+.lazy-item .slick-next,
+.thumb-item-nav .slick-next,
+.multiple-item .slick-next,
+.center-item .slick-next {
+	right: 20px;
+	z-index: 99;
+}
+.lazy-item .slick-prev,
+.thumb-item-nav .slick-prev,
+.multiple-item .slick-prev,
+.center-item .slick-prev {
+	left: 15px;
+	z-index: 100;
+}
+.single-item .slick-prev::before,
+.single-item .slick-next::before {
+	color: #666;
+}
+.slick-dots {
+	bottom:-25px;
+}
+.multiple-item li {
+	margin: 0 5px;
+}
+.thumb-item {
+	max-width: 700px;
+	margin: 0 auto 5px;
+	padding: 0 5px;
+    margin-top: 60px;
+}
+.thumb-item li img{
+    width: 100%;
+}
+.thumb-item-nav {
+	max-width: 700px;
+	margin: 0 auto;
+}
+.thumb-item-nav li{
+	margin: 5px;
+}
+.lazy-item {
+	width: 400px;
+	margin: 0 auto 50px;
+}
+.lazy-item li {
+	margin: 0 5px;
+}
+
+.slide_title {
+    margin: 0 auto;
+   width: 680px;
+   margin-top: -10px;
+   margin-bottom: 30px;
+}
+
+.taiki {
+margin-top: 50px;
+margin-left: 22px;
+}
+.taiki img {
+    display: block;
+    /* flex-wrap: nowrap; */ 
+}
+.omoi-pic {
+margin-top: 11px;
+}
+.shiawase-pic {
+margin-top: 11px;
+}
+
+
+
+.hiyori {
+    position: relative;
+    overflow: hidden;  
+}
+.hiyori img {
+    margin-top: 125px;
+    margin-left: 710px;
+
+}
+
+/* nextstage_mv */
+.nextstage_mv video{
+    min-width: 100%;
+    min-height: 100%; 
+    
+}
+/* box4 */
+.box4 {
+    width: 100%;
+    height: 342px;
+   
+}
+
+
+
+/* ↓ Next Stuge↓ */ 
+#next-stage {
+    margin-top: -430px;
+    position: relative;
+    /* background-color: rgb(219, 29, 194,0.3); */
+}
+
+
+/* ↓ Next Stuge h2アニメーション↓ */ 
+
+.h2anime {
+    color: transparent;
+  }
+
+.startanime {
+    animation: blur 10s ease-out;
+    animation-fill-mode: forwards;
+} 
+.nextstage-h2 {
+    margin-left: 130px;
+    position: relative;
+    height: 33.33px;
+}
+.nen {/*一文字ずつ遅延させる*/
+    animation-delay: 0.1s;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+    
+ }   
+.nee {
+    animation-delay: 0.2s;
+    position: absolute;
+    top: 0%;
+    left: 5.6%;
+    /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+    
+ }   
+.nex {
+    animation-delay: 0.3s;
+    position: absolute;
+    top: 0%;
+    left: 8.6%;
+    /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+    
+ }   
+.nt {
+     animation-delay: 0.4s;
+     position: absolute;
+     top: 29%;
+     left: 11.6%;
+     /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+  }
+.ns{
+    animation-delay: 0.5s;
+    position: absolute;
+    top: 58%;
+    left: 16%;
+    /* text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+    
+  }
+.nt2 {
+    animation-delay: 0.6s;
+    position: absolute;
+    top: 77%;
+    left: 19.3%;
+    /* text-shadow: rgba(255, 255, 255, 0.7) 2px 2px 20px, rgba(255, 255, 255, 0.8) 2px 2px 20px; */
+    
+  }
+.na {
+    animation-delay: 0.7s;
+    position: absolute;
+    top: 58%;
+    left: 21.8%;
+    /* text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+    
+  }
+.ng {
+    animation-delay: 0.8s;
+    position: absolute;
+    top: 27%;
+    left: 25%;
+    /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+    
+  }
+.ne {
+    animation-delay: 0.9s;
+    position: absolute;
+    top: 0%;
+    left: 28.2%;
+    
+  }
+
+
+  @keyframes blur {/*opacityとtext-shadow+animationでフェードインを表現する*/
+    0%    {text-shadow:  0 0 100px #fff; opacity:0;}
+  5%    {text-shadow:  0 0 90px #fff;}
+  15%    {opacity: 1;}
+  20%    {text-shadow:  0 0 0px #fff;}
+  80%    {text-shadow:  0 0 0px #fff;}
+  85%    {text-shadow:  0 0 0px #fff;}
+  95%   {text-shadow:  0 0 0px #fff;}
+  100% {text-shadow:  0 0 0px #fff;}
+  }
+
+.thuginokouen{
+    margin-top: 20px;
+    margin-left: 140px;
+}
+
+.next{
+    /* background-color: rgb(0, 255, 21,0.5); */
+    width: 958px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    display: flex;
+}
+
+
+
+.kouen-title{
+    width: 520px;
+    margin-top: 130px;
+}
+
+.kouen-title h3 {
+    margin-left: 40px;
+    margin-bottom: 40px;
+
+}
+.sethumei_pc { 
+    line-height: 270%;
+    display: block
+ }
+.sethumei_sp { display: none }
+
+.next-pic {
+   
+   height: 70%;
+  
+}
+
+.nichiji {
+    margin-top: 40px;
+
+}
+
+
+
+.toushoses {
+    margin-top: 120px;
+    margin-left: 230px;
+    position: relative;
+    
+    /* background-color: #999; */
+}
+
+/* box5 */
+
+/* dance-studio_mv */
+.dance-studio_mv video{
+    min-width: 100%;
+    min-height: 100%; 
+}
+
+/* ↓ Dance Studio↓ */ 
+#dance-studio {
+    margin-top: -98px;
+    /* position:  relative; */
+   /* background-color: #999; */
+}
+
+/* ↓ dance-studio h2アニメーション↓ */ 
+
+.h2anime {
+    color: transparent;
+}
+
+.startanime {
+    animation: blur 10s ease-out;
+    animation-fill-mode: forwards;
+} 
+.dancestudio-h2 {
+    margin-left: 130px;
+    position: relative;
+    height: 33.33px;
+}
+.dad {/*一文字ずつ遅延させる*/
+    animation-delay: 0.1s;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+    
+ }   
+  .daa {
+    animation-delay: 0.2s;
+    position: absolute;
+    top: 0%;
+    left: 5%;
+    /* text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+    
+ }   
+  .dan {
+    animation-delay: 0.3s;
+    position: absolute;
+    top: 0%;
+    left: 8.5%;
+    /* text-shadow: rgba(255, 255, 255, 0.7) 2px 2px 20px, rgba(255, 255, 255, 0.8) 2px 2px 20px; */
+    
+ }   
+  .dac {
+     animation-delay: 0.4s;
+     position: absolute;
+    top: 0%;
+    left: 12%;
+    /* text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+     
+  }
+  .dae{
+    animation-delay: 0.5s;
+    position: absolute;
+    top: 0%;
+    left: 15%;
+    /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+    
+  }
+  .das {
+    animation-delay: 0.6s;
+    position: absolute;
+    top: 0%;
+    left: 20.5%;
+    /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+    
+  }
+  .dt {
+    animation-delay: 0.7s;
+    position: absolute;
+    top: 22%;
+    left: 23.8%;
+    /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+    
+  }
+  .du {
+    animation-delay: 0.8s;
+    position: absolute;
+    top: 54%;
+    left: 26.4%;
+    /* text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+    
+  }
+  .dd {
+    animation-delay: 0.9s;
+    position: absolute;
+    top: 70%;
+    left: 30.2%;
+    /* text-shadow: rgba(255, 255, 255, 0.7) 2px 2px 20px, rgba(255, 255, 255, 0.8) 2px 2px 20px; */
+    
+  }
+  .di {
+    animation-delay: 1.0s;
+    position: absolute;
+    top: 50%;
+    left: 34%;
+    /* text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+
+    
+  }
+  .do {
+    animation-delay: 1.1s;
+    position: absolute;
+    top: 20%;
+    left: 35.8%;
+    /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+}
+
+  @keyframes blur {/*opacityとtext-shadow+animationでフェードインを表現する*/
+    0%    {text-shadow:  0 0 100px #fff; opacity:0;}
+  5%    {text-shadow:  0 0 90px #fff;}
+  15%    {opacity: 1;}
+  20%    {text-shadow:  0 0 0px #fff;}
+  80%    {text-shadow:  0 0 0px #fff;}
+  85%    {text-shadow:  0 0 0px #fff;}
+  95%   {text-shadow:  0 0 0px #fff;}
+  100% {text-shadow:  0 0 0px #fff;}
+  }
+  .cozy-about_sp {
+    display: none;
+}
+.cozy-about{
+    margin-top: 20px;
+    margin-left: 140px;
+    display: block;
+}
+.studui-two {
+    margin-top: 60px;
+    display: flex;
+    margin-bottom: 100px;
+    width: 952px;
+    margin-left: auto;
+    margin-right: auto;
+    /* background-color: rgb(223, 21, 196,0.5); */
+}
+.sutudio-sethumei_sp {display: none;}
+
+.sutudio-sethumei {
+line-height: 270%;
+display: block;
+margin-top: 50px;
+}
+.studio-pic {
+    margin-left: 50px;
+
+}
+
+/* ▼ボタン設定▼ */
+/* ボタン ホバー前*/
+
+.btn {
+    font-size: 0.5rem;
+}
+.view-button {
+    text-align: center;
+    font-size: 1.8em;
+    display: block;
+    margin-top: 100px;
+    position: relative;
+  
+}
+
+
+.view-button a {
+    color: #fff;
+    text-decoration: none;
+}
+.btn-pic {
+    /* background-color: rgb(159, 107, 241); */
+    margin-top: -28px;
+    margin-left: 20px;
+    position: relative;
+}
+
+/* ボタン ホバー後*/
+.view-button a {
+    position: relative;
+    display: block;
+    width: 280px;
+    height: 50px;
+    line-height: 50px;
+    margin: 40px auto;
+    text-decoration: none;
+    color: #fff;
+    transition: .25s;
+    background-color: #000;
+    /* background-color: red; */
+}
+    
+.view-button a::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 0;
+    height: 0;
+    border: 1.5px solid transparent;
+    border-radius: 3px;
+}
+    
+.view-button a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 0;
+    height: 0;
+    border: 1.5px solid transparent;
+    border-radius: 3px;
+}
+
+.view-button a:hover {
+    color: #fff;
+}
+
+    
+.view-button a:hover::before {
+    width: 100%;
+    height: 100%;
+    border-top-color: #fff;
+    border-right-color: #fff;
+    transition: width .25s ease-out, height .25s ease-out .25s;
+}
+
+.view-button a:hover::after {
+    width: 100%;
+    height: 100%;
+    border-bottom-color: #fff;
+    border-left-color: #fff;
+    transition: border-color 0s ease-out .5s, width .25s ease-out .5s, height .25s ease-out .75s;
+}
+/* ホバーでボタン画像が消える */
+  .view-button a:hover .btn-pic{
+    filter: alpha(opacity=0);
+    -moz-opacity:0;
+    opacity:0
+  }
+  /* クリックでボタン縮小 */
+.view-button:active
+{
+  animation: small 0.1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes small 
+{
+  100% {transform: scale(0.9);}
+}
+/* ▲ボタン設定▲ */
+
+
+.yoshie {
+    position: relative;
+    /* background-color: rgb(255, 174, 0); */
+}
+.yoshie img{
+    width: 44%;
+    margin-top: 60px;
+    margin-left: 420px;
+}
+
+/* faq_mv */
+.faq_mv video{
+    min-width: 100%;
+    min-height: 100%; 
+}
+
+/* box6 */
+.box6 {
+    width: 100%;
+    height: 342px;
+    background-color: #000;
+}
+
+/* ↓ FAQ h2アニメーション↓ */ 
+#faq {
+    margin-top: -660px;
+    /* background-color: rgb(156, 238, 89,0.5); */
+    
+}
+.h2anime {
+    color: transparent;
+  }
+
+.startanime {
+    animation: blur 10s ease-out;
+    animation-fill-mode: forwards;
+} 
+.faq-h2 {
+    position: relative;
+    height: 33.33px
+}
+
+.faf.startanime {/*一文字ずつ遅延させる*/
+    animation-delay: 0.1s;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    /* text-shadow: rgba(255, 255, 255, 0.7) 2px 2px 20px, rgba(255, 255, 255, 0.8) 2px 2px 20px; */
+    
+ }   
+.faa.startanime {
+    animation-delay: 0.2s;
+    position: absolute;
+    top: 0%;
+    left: 3.8%;
+    /* text-shadow: rgba(255, 255, 255, 0.7) 2px 2px 20px, rgba(255, 255, 255, 0.8) 2px 2px 20px; */
+
+    
+ }   
+.fq.startanime {
+    animation-delay: 0.3s;
+    position: absolute;
+    top: 24%;
+    left: 8.9%;
+    /* text-shadow: rgba(255, 255, 255, 0.7) 2px 2px 20px, rgba(255, 255, 255, 0.8) 2px 2px 20px; */
+    
+ }   
+
+
+
+
+  @keyframes blur {/*opacityとtext-shadow+animationでフェードインを表現する*/
+    0%    {text-shadow:  0 0 100px #fff; opacity:0;}
+  5%    {text-shadow:  0 0 90px #fff;}
+  15%    {opacity: 1;}
+  20%    {text-shadow:  0 0 0px #fff;}
+  80%    {text-shadow:  0 0 0px #fff;}
+  85%    {text-shadow:  0 0 0px #fff;}
+  95%   {text-shadow:  0 0 0px #fff;}
+  100% {text-shadow:  0 0 0px #fff;}
+  }
+
+
+#faq h2 {
+    margin-left: 130px;
+}
+
+.yokuaru {
+    margin-top: 20px;
+    margin-left: 140px;
+}
+.question_sp {
+    display: none;
+}
+.question {
+    line-height: 200%;
+    margin-top: 60px;
+    position: relative;
+    width: 1070px;
+    margin-left: 130px;
+    display: block;
+    /* background-color: rgb(228, 91, 11); */
+}
+
+.question p {
+    z-index: 10;
+}
+.q2 {
+    margin-top: 40px;
+
+}
+.q3 {
+    margin-top: 40px;
+}
+.q4 {
+    margin-top: 40px;
+}
+.q5 {
+    margin-top: 40px;
+}
+
+.nemuru img {
+    z-index: -10;
+   position: absolute;
+   top: 66%;
+   left: 30%;
+}
+
+.box9 {
+    height: 310px;
+    /* background-color: rgb(119, 0, 255); */
+}
+
+/* contact_mv */
+.contact_mv video{
+    
+    min-width: 100%;
+    min-height: 100%; 
+}
+
+.aogu {
+    margin-left: 20px;
+    position: relative;
+
+}
+
+
+/* ↓ Contact↓ */ 
+#contact {
+    margin-top: -626px;
+    position: relative;
+    /* z-index: 30; */
+    /* background-color: rgb(89, 17, 172,0.5); */
+}
+#contact h2 {
+    margin-left: 130px;
+}
+/* ↓ Contact h2アニメーション↓ */ 
+.h2anime {
+    color: transparent;
+  }
+
+
+.startanime {
+    animation: blur 10s ease-out;
+    animation-fill-mode: forwards;
+} 
+.contact-h2 {
+    position: relative;
+    height: 33.33px
+}
+
+.coc {/*一文字ずつ遅延させる*/
+    animation-delay: 0.1s;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+    
+ }   
+.coo {
+    animation-delay: 0.2s;
+    position: absolute;
+    top: 0%;
+    left: 5.0%;
+    /* text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+    
+ }   
+.cn {
+    animation-delay: 0.3s;
+    position: absolute;
+    top: 28%;
+    left: 8.6%;
+    /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+    
+ }   
+.ct {
+    animation-delay: 0.4s;
+    position: absolute;
+top: 52%;
+left: 12.3%;
+/* text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+    
+}
+.ca{
+animation-delay: 0.5s;
+position: absolute;
+top: 76%;
+left: 15%;
+/* text-shadow: rgba(255, 255, 255, 0.7) 2px 2px 20px, rgba(255, 255, 255, 0.8) 2px 2px 20px; */
+}
+.cc {
+animation-delay: 0.6s;
+position: absolute;
+top: 52%;
+left: 18.6%;
+/* text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+
+}
+.ct2{
+animation-delay: 0.7s;
+position: absolute;
+top: 28%;
+left: 21.6%;
+/* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+
+}
+  
+  @keyframes blur {/*opacityとtext-shadow+animationでフェードインを表現する*/
+    0%    {text-shadow:  0 0 100px #fff; opacity:0;}
+  5%    {text-shadow:  0 0 90px #fff;}
+  15%    {opacity: 1;}
+  20%    {text-shadow:  0 0 0px #fff;}
+  80%    {text-shadow:  0 0 0px #fff;}
+  85%    {text-shadow:  0 0 0px #fff;}
+  95%   {text-shadow:  0 0 0px #fff;}
+  100% {text-shadow:  0 0 0px #fff}
+  }
+
+
+.otoiawase {
+    margin-top: 20px;
+
+    margin-left: 140px;
+}
+.hissujikou {
+    font-size: 1.4rem;
+}
+
+.asuta {
+    font-size: 2.2rem;
+}
+.pic3 {
+    display: flex;
+    margin: 80px 0px 70px 410px;
+    width: 200%;
+}
+.pic-2 {
+    opacity: 0.3;
+    margin: 0px 80px;
+    
+}
+.pic-3 {
+    opacity: 0.3;
+}
+.form {
+    margin-left: 360px;
+    line-height: 300%;
+    margin-top: -20px;
+    width: 470px;
+    height: 850px;
+
+    /* background-color: rgb(143, 22, 22); */
+}
+
+
+.f1 {
+    margin-top: -6px;
+}
+.f2 {
+    margin-top: 24px;
+}
+.f3 {
+    margin-top: 24px;
+}
+.f4 {
+    margin-top: 24px;
+}
+
+/* お問い合わせ入力 */
+input[type="text" i] {
+    padding-left: 20px;
+}
+input[type="email" i] {
+    padding-left: 20px;
+}
+
+
+.btn2 {
+    font-size: 0.7em
+}
+.btn-pic2 {
+    margin-top: -24px;
+    margin-left: 20px;
+    filter: alpha(opacity=100);
+    -moz-opacity:1;
+    opacity:1;
+    transition: 1.0s ;
+    /* background-color: rgb(44, 209, 154); */
+}
+/* ホバーでボタン画像が消える */
+
+  .btn-pic2:hover{
+    filter: alpha(opacity=0);
+    -moz-opacity:0;
+    opacity:0
+  }
+  .btn-pic2 img{
+      position:absolute;
+      left: 20px;
+      transition: 1s;
+      opacity: 1;
+      width: 80%;
+      margin-left: 18px;
+      margin-top: 2px;
+      /* background-color: rgb(221, 177, 32); */
+  }
+  .btn-pic2 img:hover{
+    opacity: 0;
+  }
+
+ .view-button {
+     /* background-color: rgb(78, 197, 9); */
+     margin-top: 60px;
+ } 
+  /* クリックで文字が小さくなる */
+  .btn {
+    font-size:0.9em;
+    transition: 1s;
+  }
+  .btn :active{
+    font-size:0.5em;
+    transform: scale(0);
+  }
+.f1 input {
+    width: 470px ;
+    height: 48px;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+}
+.f2 input {
+    width: 470px ;
+    height: 48px;
+    border-radius: 5px;
+    box-sizing: border-box;
+   
+}
+.f3 input {
+    width: 470px;
+    height: 48px;
+    border-radius: 5px;
+    box-sizing: border-box;
+   
+}
+
+.p4 {
+    width: 470px ;
+    height: 200px;
+    border-radius: 5px;
+   padding-left: 20px;
+   padding-top: 15px;
+   box-sizing: border-box;
+}
+
+
+/* 入力の確認ボタン */
+
+.submit_btn {
+    text-align: center;
+    display: block;
+    position: relative;
+    margin-top: 60px;
+    
+  
+}
+
+#submit_btn {
+    display: none;
+    /* visibility: hidden; */
+}
+
+
+/* ボタン画像読み込み*/
+input.submit_btn {
+    margin-left: 120px;
+    margin-top: 160px;
+    cursor: pointer;
+    display: block;
+    width: 250px;
+    height: 50px;
+    border: none;
+    text-indent: -9999px;
+    background: url(../images/pc/contact-button.png) no-repeat 0 0;
+    transition: .25s;
+    position: relative;
+  }
+   
+ 
+.submit_btn:hover::before {
+    width: 100%;
+    height: 100%;
+    border-top-color: #fff;
+    border-right-color: #fff;
+    transition: width .25s ease-out, height .25s ease-out .25s;
+}
+
+.submit_btn:hover::after {
+    width: 100%;
+    height: 100%;
+    border-bottom-color: #fff;
+    border-left-color: #fff;
+    transition: border-color 0s ease-out .5s, width .25s ease-out .5s, height .25s ease-out .75s;
+}
+.form .submit_btn {
+    margin-left: auto;
+    margin-right: auto;
+}
+#submit_img_wrapper {
+    width: 280px;
+    height: 50px;
+  
+}
+.btn2 {
+    font-size: 2rem;
+}
+
+/* クリックでボタン縮小 */
+.submit_btn:active
+{
+  animation: small 0.1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes small 
+{
+  100% {transform: scale(0.9);}
+}
+/* ▲ボタン設定▲ */
+
+
+
+/* box8 */
+.box8 {
+    width: 100%;
+    height: 370px;
+    background-color: rgb(0, 0, 0);
+    opacity: 1;
+    position: relative; 
+    overflow: hidden;  
+}
+
+
+/* ↓ Footer↓ */ 
+
+
+
+#footer {
+ 
+    position: relative;
+    /* background-color: rgb(229, 255, 0); */
+}
+.inc {
+    position: absolute;
+    left: 107px;
+    bottom: 109px;
+    /* background-color: rgb(174, 221, 5); */
+    
+}
+.top img {
+    position: absolute;
+    right: 100px;
+    bottom: 200px;
+    /* background-color: rgb(106, 15, 190); */
+}
+.youtube img {
+    position: absolute;
+    top: -13px;
+    right: 246px;
+    /* background-color: rgb(110, 10, 10); */
+}
+.facebook img {
+    position: absolute;
+    top: 0;
+    right: 204px;
+    /* background-color: rgb(110, 10, 10); */
+}
+.instagram img {
+    position: absolute;
+    top: -10px;
+    right: 140px;
+    /* background-color: rgb(110, 10, 10); */
+}
+.snow {
+    display: block;
+}
+.snow_sp {
+    display: none;
+}
+
+
+
+/* ------------------ */
+/* スマホ版 */
+/* ~768 スマホ
+   769~PC */
+/* ------------------ */
+
+
+/* =======================
+.ハンバーガーメニュー
+======================= */
+
+/* =======================
+.menu-trigger PC
+======================= */
+.menu-trigger {
+    display: none; /*PCの時は消しておく*/
+    -webkit-appearance: none; /* Crome用　フォ-ム要素の初期化*/
+    appearance: none; /*フォ-ム要素の初期化*/
+    border: none;
+    background: transparent; /* Firefox用 背景を透過させる設定*/
+    opacity: 0;
+    transition: 6.5s; 
+  }
+  .menu-trigger,
+  .menu-trigger span {
+      display: inline-block; /* ブロック要素とインライン要素の中間の状態の要素*/
+      transition: all .4s;
+      box-sizing: border-box;
+  }
+
+.menu-trigger.header_animated{
+    opacity: 1;
+}
+
+
+  
+  /* =======================
+.menu-trigger SP
+  ======================= */
+  @media (max-width:768px) {
+
+    /* ▼ ローディング画面 ▼*/
+
+    #loading {
+        width: 100vw;
+        height: 100vh;
+        transition: all 1s;
+        background: #000;
+        position: fixed;
+        top: -60px;
+        left: 0;
+        z-index: 100001;
+        
+    }
+    .loaded {
+        opacity: 0;
+        visibility: hidden;
+    }
+   
+
+    /* 中のローディングアニメ */
+    /*▼ ローディング % ▼*/
+  
+    #loadingp {
+        position: absolute;
+        top: 70%;
+        height: 100px;
+        margin: 0 auto;
+        padding-left: 30px;
+        padding-right: 30px;
+        left: 23%
+       
+    }
+
+    #percent {
+        width: 30px;
+        height: 30px;
+        margin-left: 150px;
+    }
+    #loadingp #percent {
+        
+      
+        font-size: 16px;
+    }
+    #loadingp #gauge {
+        height: 3px;
+    }
+
+    /*▲ ローディング % ▲*/
+   
+    .load_logo {
+        width: 300px;
+        height: 300px;
+        position: relative;
+    }
+
+    .load_logo img {
+        width: 200px;
+        height: auto;
+        position: absolute;
+        top: 30%;
+        left: 10%;
+        top: calc(50%-80px);
+        left: calc(50%)-200px; 
+
+      }
+     
+      .loader {
+        position: absolute;
+        top: calc(50% - 128px);
+        left: calc(50% - 128px);
+        width: 256px;
+        height: 256px;
+        border-radius: 50%;
+        perspective: 800px;
+      }
+      
+      .inner {
+        position: absolute;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;  
+      }
+      
+      .inner.one {
+        left: 0%;
+        top: 0%;
+        animation: rotate-one 1s linear infinite;
+        border-bottom: 3px solid #EFEFFA;
+      }
+      
+      .inner.two {
+        right: 0%;
+        top: 0%;
+        animation: rotate-two 1s linear infinite;
+        border-right: 3px solid #EFEFFA;
+      }
+      
+      .inner.three {
+        right: 0%;
+        bottom: 0%;
+        animation: rotate-three 1s linear infinite;
+        border-top: 3px solid #EFEFFA;
+      }
+      
+      @keyframes rotate-one {
+        0% {
+          transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+        }
+        100% {
+          transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+        }
+      }
+      
+      @keyframes rotate-two {
+        0% {
+          transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+        }
+        100% {
+          transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+        }
+      }
+      
+      @keyframes rotate-three {
+        0% {
+          transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+        }
+        100% {
+          transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+        }
+      }
+      
+     /* ▲ ローディング画面 ▲ */
+    /*----- スマホ ハンバーガーメニュー ----- */
+
+    .header_scroll{
+        display:none；
+        
+        }
+    #header {
+    width: 60px;
+    height: 60px;
+    right: 0px;
+        }
+       
+
+
+    .menu-trigger {
+      width: 56px;
+      height: 60px;
+      /*positionで画面右上に絶対配置*/
+      position: fixed;
+      top: 0;
+      right: 0;
+      /*要素の重なり、上のレイヤーと同じ考えかた*/
+      z-index: 100000;
+      /*クリックした際のボタン周りの線を消す*/
+      outline: none;
+    }
+    .menu-trigger span {
+      position: absolute;
+      left: 50%;
+      width: 32px;
+      height: 2px;
+      background-color: #fff;
+      /*menu-trigger内のspan全体を中心位置に揃える設定*/
+      transform: translate(-50%, -50%);
+    }
+    .menu-trigger span:nth-of-type(1) {
+      top: 16px;
+    }
+    .menu-trigger span:nth-of-type(2) {
+      top: 50%;
+    }
+    .menu-trigger span:nth-of-type(3) {
+      bottom: 14px;
+    }
+  /*.activeが付いているものは
+  クリックした際した後の表示を設定*/
+    .menu-trigger.active span:nth-of-type(1) {
+      top: 49%;
+      /* 変形の設定 右側の軸は変えずに左側を傾けている */
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    .menu-trigger.active span:nth-of-type(2) {
+      opacity: 0; 
+    }
+    .menu-trigger.active span:nth-of-type(3) {
+      bottom: 49%;
+      /* 変形の設定 右側の軸は変えずに左側を上に傾けている */
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    /*----- スマホ ナビゲーション ----- */
+    .rogo {
+        display: none;
+       }
+
+    #global-nav {
+      display: none;/* クリックする前は消えてほしい*/ 
+      width: 100vw;/*画面横幅めいいっぱい広げる*/
+      height: 100vh;/*画面縦幅めいいっぱい広げる*/
+      background: rgba(0,0,0,0.85);
+      /* padding: 90px 5% 0; */
+      /*positionと組み合わせページをスクロールした場合も同じ位置に常に置く設定 transrateXと合わせてど真ん中に位置を合わせる設定*/
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;/* 何かしらの要素の背面に設置*/
+      
+    }
+    #global-nav.active {
+      display: block;/* クリックした時に表示*/
+      z-index: 1;/* 何かしらの要素の全面に設置*/
+    }
+  
+    #global-nav ul {
+      /* display:flex;を解除して縦並びにしている*/
+      display: block;
+      
+    }
+    .nav-list {
+        display: inline-block;
+
+        /* margin: 0 auto; */
+        /* top: 100px;
+        left: 30px; */
+        padding-left: 0px;
+        
+    }
+
+
+    .a {
+        padding: 0;
+        position: absolute;
+        width: 100vw;
+        height: auto;
+        text-align: left;
+        text-decoration: none;
+    }
+    .t {
+        position: absolute;
+        top: 80px;
+        padding: 0;
+        width: 100vw;
+        height: auto;
+        text-align: left;
+        padding-bottom: 60px;
+    }
+    .h {
+        position: absolute;
+        top: 160px;
+        padding: 0;
+        width: 100vw;
+        height: auto;
+        text-align: left;
+    }
+    .n {
+        position: absolute;
+        top: 240px;
+        padding: 0;
+        width: 100vw;
+        height: auto;
+    }
+    .d {
+        position: absolute;
+        top: 320px;
+        padding: 0;
+        width: 100vw;
+        height: auto;
+    }
+    .f {
+        position: absolute;
+        top: 400px;
+        padding: 0;
+        width: 100vw;
+        height: auto;
+    }
+    .c {
+        position: absolute;
+        top: 480px;
+        padding: 0;
+        width: 100vw;
+        height: auto;
+    }
+  
+    #global-nav li,
+    #global-nav li:last-child {
+      /*画面横にめいいっぱい伸ばしている設定*/
+      width: 100%;
+    }
+    .nav-list {
+        margin-top:26%;
+         margin-left: -8%;
+    }
+    #global-nav li a {
+        
+      font-size: 48px;
+     line-height: 2rem;
+     
+    }
+    .nav-item a {
+        text-decoration: none;
+    }
+    .nav-item {
+        width: 100vw;
+    }
+
+    
+  
+  /* max-width:768px END*/
+
+
+
+
+/* -------------------- */
+/* 基本設定 ipad
+/* -------------------- */
+/* 基本設定 PC*/
+
+#width {
+   width: 100vw;
+   margin: 0 auto;
+   overflow: hidden;
+}
+
+    body{
+        font-size: 2.4vw;
+        line-height: 3vw;
+       
+    }
+
+
+/* -------------------- */
+/* h1 h2 h3 スマホ
+/* -------------------- */
+
+
+    h1{
+        font-size: 8vw;
+        line-height: 8.5vw;
+        position: absolute;
+        padding: 0 20px;
+    }
+    h2 {
+        font-size: 9vw;
+        /* font-family: 150; */
+        letter-spacing: normal;
+        
+        
+    }
+    h3 {
+        font-size: 5vw;
+        letter-spacing: normal;
+        
+    }
+
+/* -------------------- */
+/* h1アニメーション スマホ
+/* -------------------- */
+
+    .h1anime {/*各テキストにanimationを設定*/
+        color: transparent;/*テキストを透明にしてtext-shadowだけ表示する*/
+        animation: blur 10s ease-out;
+        animation-fill-mode: forwards;
+       
+      }
+      .h1anime.da {/*一文字ずつ遅延させる*/
+        animation-delay: 0.1s;
+        
+     }   
+      .h1anime.nh1 {
+        animation-delay: 0.2s;
+        
+     }   
+      .h1anime.su {
+        animation-delay: 0.3s;
+        
+        
+     }   
+      .h1anime.pu {
+         animation-delay: 0.4s;
+         
+      }
+      .h1anime.ro {
+        animation-delay: 0.5s;
+        
+      }
+      .h1anime.ji {
+        animation-delay: 0.6s;
+        
+      }
+      .h1anime.e {
+        animation-delay: 0.7s;
+        
+      }
+      .h1anime.ku {
+        animation-delay: 0.8s;
+        
+      }
+      .h1anime.to2 {
+        animation-delay: 0.9s;
+        
+      }
+     
+       
+      @keyframes blur {/*opacityとtext-shadow+animationでフェードインを表現する*/
+      0%    {text-shadow:  0 0 100px #fff; opacity:0;}
+      5%    {text-shadow:  0 0 90px #fff;}
+      15%    {opacity: 1;}
+      20%    {text-shadow:  0 0 0px #fff;}
+      80%    {text-shadow:  0 0 0px #fff;}
+      85%    {text-shadow:  0 0 0px #fff;}
+      95%   {text-shadow:  0 0 0px #fff;}
+      100% {text-shadow:  0 0 0px #fff;}
+      }
+    
+    #navi-mv {
+        opacity:0;  
+        
+    }
+    
+
+
+
+/* -------------------- */
+/* メインビジュアル スマホ
+/* -------------------- */
+/* パソコンで見たときは"pc"のclassがついた画像が表示される */
+.mv_pc { display: block }
+.mv_sp { display: none }
+ 
+
+
+
+/* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
+
+    .mv_pc { display: none }
+    .mv_sp { display: block }
+
+    .mv_sp {
+        position: relative;
+        width: 100vw;
+        height: auto;
+    }
+
+    .mv h1 {
+        position: absolute;
+        top: 70%;
+        left: 3%;
+        letter-spacing: 0vw;
+    }
+    .nh1 {
+        position: absolute; 
+        top: 50%;
+        left: 21.2%;
+    
+    }
+    .su {
+        position: absolute; 
+        top: 50%;
+        left: 35.2%;
+    
+    }
+    .pu {
+        position: absolute; 
+        top: 60%;
+        left: 49%;
+        /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+    }
+    .ro {
+        position: absolute;
+        top: 74%;
+        left: 62%; 
+        /* text-shadow: rgba(255, 255, 255, 0.6) 2px 2px 20px, rgba(255, 255, 255, 0.8) 2px 2px 20px; */
+    }
+    .ji {
+        position: absolute; 
+        top: 87%;
+        left: 76%;
+        /* text-shadow: rgba(255, 255, 255, 1) 2px 2px 20px, rgba(255, 255, 255, 0.9) 2px 2px 20px; */
+    }
+    .e {
+        position: absolute; 
+        top: 72%;
+        left: 90%;
+        /* text-shadow: rgba(255, 255, 255, 0.6) 2px 2px 20px, rgba(255, 255, 255, 0.8) 2px 2px 20px; */
+    }
+    .ku {
+        position: absolute; 
+        top: 60%;
+        left: 103%;
+        /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+    }
+    .to2 {
+        position: absolute; 
+        top: 50%;
+        left: 115%;
+    }
+    
+
+    .box1 {
+        margin-top: 0px;
+        width: 100vw;
+        height:120px;
+        background-color: #000;
+        position: relative; /* ここ追記 */
+        overflow: hidden;  
+    }
+
+
+
+/* -------------------- */
+/* About-Us スマホ
+/* -------------------- */
+
+    .watashitati {
+        margin-top: 30px;
+        margin-left: 20px;
+        padding-left: 30px;
+        font-size: 2.7vw;
+
+    }
+
+    .h2anime {
+        color: transparent;/*テキストを透明にしてtext-shadowだけ表示する*/
+    }
+
+    .startanime{
+        /* ブラーで10sで高速で動き出し、最後に減速 */
+        animation: blur 10s ease-out;
+        /* アニメーション再生後前面に来てね */
+        animation-fill-mode: forwards; 
+    }
+    
+    .aboutus_h2 {
+        margin-left: 20px;
+        padding-left: 20px;
+        position: relative;
+        /* background-color: rgb(189, 64, 64); */
+    }
+    .aa{
+        animation-delay: 0.1s;
+        top: 0%;
+        left: 0%;
+    }
+    .ab{
+        animation-delay: 0.2s;
+        position: absolute;
+        top: 0%;
+        left: 6%;
+    }
+    .ao{
+        animation-delay: 0.3s;
+        position: absolute;
+        top: 24%;
+        left: 9%;
+        /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+    }
+
+    .au{
+        animation-delay: 0.4s;
+        position: absolute;
+        top: 52%;
+        left: 12%;
+        /* text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+    }
+    .at{
+        animation-delay: 0.5s;
+        position: absolute;
+        top: 78%;
+        left: 15%;
+        /* text-shadow: rgba(255, 255, 255, 0.7) 2px 2px 20px, rgba(255, 255, 255, 0.8) 2px 2px 20px; */
+    }
+    .aU{
+        animation-delay: 0.6s;
+        position: absolute;
+        top: 52%;
+        left: 19%;
+        /* text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+    }
+    .as{
+        animation-delay: 0.7s;
+        position: absolute;
+        top: 24%;
+        left: 23.3%;
+        /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+    }
+
+
+    @keyframes blur {/*opacityとtext-shadow+animationでフェードインを表現する*/
+        0%    {text-shadow:  0 0 100px #fff; opacity:0;}
+    5%    {text-shadow:  0 0 90px #fff;}
+    15%    {opacity: 1; }
+    20%    {text-shadow:  0 0 0px #fff;}
+    80%    {text-shadow:  0 0 0px #fff;}
+    85%    {text-shadow:  0 0 0px #fff;}
+    95%   {text-shadow:  0 0 0px #fff;}
+    100% {text-shadow:  0px 0px 0px #fff;}
+    }
+
+    .first {
+        /* background-color: rgba(185, 236, 67, 0.1); */
+        position: relative;
+    }
+    .pic-both {
+        flex-direction: column;
+    }
+
+
+    /* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
+
+    .pic2_pc { display: none }
+    .pic2_sp { display: block }
+    .pic1_pc { display: none }
+    .pic1_sp { display: block }
+    .kotowaza_pc { display: none }
+    .kotowaza_sp { display: block }
+
+    .pic2_sp{
+       
+        /* background-color: rgb(170, 62, 62); */
+        order: 2;
+        width: 100vw;
+        text-align: right;
+ 
+    }
+    .pic1_sp {
+        order: 1;
+        width: 100vw;
+       
+    }
+ 
+    .kotowaza_sp {
+        width: 100vw;
+        position: absolute;
+        top: 24.6%;
+        left: 8%;
+        font-size: 3.4vw;
+        line-height: 240%;
+    }
+
+    .ichigiichietoha {
+        width: 100vw;
+        position: absolute;
+        top: 21%;
+        left: 7%;
+        font-size: 7.5vw;
+
+    }
+    .aichi {
+        letter-spacing: 0vw;
+    }
+    .ago {
+        position: absolute;
+        left: 15%;
+    }
+    .ai {
+        position: absolute;
+        left: 23.5%;
+    }
+    
+    .achi {
+        position: absolute;
+        left: 31%;
+    }
+    .ae{
+        position: absolute;
+        left: 38.5%;
+    }
+    .ato {
+        position: absolute;
+        left: 47%;
+    }
+    .aha {
+        position: absolute;
+        left: 54.5%;
+    }
+    .fadeIn {
+        transform: translate3d(0, 50px, 100px);
+        transition: 3.0s;
+        opacity: 0;
+     
+    }
+    .fadeIn.animated {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+
+
+    .kokorozashi_mv {
+        width: 100vw;
+        margin-top: -300px;
+    }
+    
+   .kankoro {
+    font-size: 7.4vw;
+   }
+ 
+
+    .koko1 {
+        position: absolute;
+        left: 100%;
+    }
+    .koko2 {
+        position: absolute;
+        left: 134%;
+    }
+    .koro {
+        position: absolute;
+        left: 168%;
+    }
+    .koza {
+        position: absolute;
+        left: 204%;
+    }
+    .koshi  {
+        position: absolute;
+        left: 238%;
+    }
+    .kohaihun2 {
+        position: absolute;
+        left: 278%;
+    }
+
+    .inochi {
+        position: absolute;
+        line-height: 240%;
+        top: 56%;
+        left: 18%;
+    }
+    .arabesuku {
+        position: absolute;
+        top: 77%;
+        left: 15%;
+        /* background-color: rgb(121, 25, 25); */
+    }
+
+    
+    .k_pic1_pc { display: none }
+    .k_pic1_sp { display: block }
+    /* .k_pic1_sp {
+        margin-top: -80px;
+    } */
+
+    .k_pic2_pc { display: none }
+    .k_pic2_sp { 
+        position: relative;
+        overflow: hidden;
+        display: block 
+          
+    }
+    
+   
+
+    .tmgirl {
+        width: 70%;
+
+    }
+    .k_pic1_sp {
+        margin-top: -70px;
+    }
+   
+    /* ヘッダーのスクロール */
+    .header_scroll {
+        opacity: 0;
+        transition: 0s; 
+        /* transition: 6.5s;  元々これ*/
+    }
+    /* .header_scroll.header_animated{
+        opacity: 1;
+    } */
+
+
+    /* about-us動画 */
+    .about-us_mv video{
+        width: 100vw;
+        height: auto; 
+    }
+
+    .inochi {
+        font-size: 3.4vw;
+    }
+ 
+
+    /*志動画*/
+    .kokorozashi_mv video{
+    width: 100vw;
+    height: auto; 
+    margin-top: -300px;
+    }
+
+   /*takashiro-yuki */
+    .yuki_mv video{
+        width: 100vw;
+        height: auto; 
+    }
+    .kokorozashi {
+        top: 34%;
+        left: 18%;
+        
+    }
+    .kokorozashi-hiragana{
+  
+        top: 10%;
+        font-size: 6.2vw;
+    }
+    .kankoko {
+      
+        top: 10%;
+        font-size: 7.4vw;
+    }
+    .inochi {
+        top: 37.5%;
+        line-height: 240%;
+        padding-right: 30px;
+    }
+    .arabesuku {
+        display: none;
+    }
+
+  
+   .taka_h2 {
+    margin-left: 20px;
+    position: relative;
+    height: 33.33px;
+    /* background-color: pink; */
+}
+ 
+    .shusai {
+        margin-top: 20px;
+        margin-left: 0px;
+        padding-left: 30px;
+        font-size: 2.4vw;
+    }
+    .kokorozashi-div {
+        margin-top: 40px;
+    }
+
+    .box2 {
+    height: 100px;
+    }
+
+    .tat {/*一文字ずつ遅延させる*/
+        top: 0%;
+        left: 0%;
+        
+     }   
+     .taa {
+        top: 0%;
+        left: 5%;
+        
+     }   
+     .tak {
+  
+        top: 0%;
+        left: 9.5%;
+        
+     }   
+     .taa2 {
+         top: 0%;
+         left: 14%;
+         
+      }
+     .tas {
+        top: 0%;
+        left: 18.5%;
+    
+        
+      }
+     .tah {
+        top: 10%;
+        left: 21.5%;
+        
+      }
+     .tai {
+        top: 26%;
+        left: 26%;
+        text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px;
+        
+      }
+      .tar {
+        top: 36%;
+        left: 28.5%;
+        text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px;
+        
+      }
+      .tao {
+        top: 57%;
+        left: 31.5%;
+        text-shadow: rgba(255, 255, 255, 0.7) 2px 2px 20px, rgba(255, 255, 255, 0.8) 2px 2px 20px;
+        
+      }
+      .taY {
+        top: 36%;
+        left: 38%;
+        text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px;
+        
+      }
+      .tau {
+        top: 26%;
+        left: 42.5%;
+        text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px;
+        
+      }
+      .tak2 {
+        top: 10%;
+        left: 47.5%;
+        
+      }
+      .tai2 {
+        left: 52%;
+        
+      }
+     
+    #takashiro-yuki {
+        margin-top: 20px;
+    }
+    .yuki_pc { display: none; }
+    .yuki_sp{
+        margin-top: 0.8%;
+        margin-left: 0;  
+        width: 200%;
+        display: block; 
+        
+
+    }
+  
+
+
+    .takashiro-kanji {
+        margin-top: -173%;
+        margin-left: 34%; 
+        font-size: 7.4vw;
+    }
+    .frigana {
+        font-size: 3vw;
+        position: absolute;
+        margin-top: -166.5%;
+        margin-left: 35.5%;
+    }
+    
+    
+    
+    .takatak {
+        position: relative;
+     
+    }
+    .takashiro {
+        position: absolute;
+        left: 110%;
+    }
+    .takayu {
+        position: absolute;
+        left: 220%;
+    }
+    .takaki {
+        position: absolute;
+        left: 330%;
+    }
+    
+    .takataka {
+        text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.5) 2px 2px 20px;
+    }
+    .takashiro {
+        text-shadow: rgba(255, 255, 255, 0.7) 2px 2px 20px, rgba(255, 255, 255, 0.7) 2px 2px 20px;
+    
+    }
+    .takayu {
+        text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.5) 2px 2px 20px;
+    }
+    .takaki {
+        text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.3) 2px 2px 20px;
+    }
+    
+    .ids {
+        position: absolute;
+        margin-top: -154%;
+        margin-left: 34%;
+        font-size: 3.4vw;
+        line-height: 180%;
+    
+    }
+    .sensai { display: none; }
+    .sensai_sp{
+        display: block; 
+        position: absolute;
+        margin-top: -136%;
+        margin-left: 34%;
+        font-size: 3.4vw;
+        line-height: 270%;
+        padding-right: 30px;
+    }
+
+    
+    .teacher {
+        width: 75%; 
+        margin-top: -6%;
+        margin-left: 5%;
+        position: relative;
+    
+        /* background-color: rgb(32, 159, 243); */
+    
+    }
+    
+    /* box3 */
+    .box3 {
+        width: 100%;
+        height: 342px;
+        background-color:#000;
+    
+    }
+
+    /*  History動画 */
+    .history_mv video{
+        margin-top: 100px;
+        width: 100vw;
+        height: auto; 
+    }
+
+    /* ↓ History↓ */ 
+
+    #history {
+   margin-top: -320px;
+    position: relative;
+    /* background-color: rgb(114, 0, 245,0.3); */
+    }
+
+
+    .h2anime {
+    color: transparent;
+    }
+
+    .startanime {
+    animation: blur 10s ease-out;
+    animation-fill-mode: forwards;
+    }
+    .history-h2 {
+    margin-left: 20px;
+    }
+ 
+    .hi {
+    top: 0%;
+    left: 7%;
+    }   
+    .hs {
+    top: 28%;
+    left: 9.5%;
+    }   
+    .ht {
+        top: 50%;
+        left: 12.5%; 
+    }
+    .ho{
+    top: 68%;
+    left: 15.7%;
+    }
+    .hr {
+    top: 50%;
+    left: 20.3%;
+
+    }
+    .hy {
+    top: 28%;
+    left: 24.1%;
+    }
+
+    .kathudou {
+    margin-top: 30px;
+    margin-left: 0px;
+    padding-left: 30px;
+    font-size: 2.4vw;
+    }
+
+
+    .slide_title {
+    margin-top: -1px;
+    font-size: 3.4vw;
+    }
+
+    .taiki {
+    margin-top: 50px;
+    margin-left: 22px;
+    }
+    .taiki img {
+    display: block;
+    /* flex-wrap: nowrap; */ 
+    }
+    .omoi-pic {
+    margin-top: 11px;
+    }
+    .shiawase-pic {
+    margin-top: 11px;
+    }
+
+    .hiyori img {
+    margin-top: 125px;
+    margin-left: 45%;
+
+    }
+    .history_slider {
+        padding: 30px;
+    }
+
+
+    /* nextstage_mv */
+
+.nextstage_mv video{
+    width: 100vw;
+    height: auto; 
+    margin-top: -30px;
+}
+
+
+
+/* ↓ Next Stuge↓ */ 
+#next-stage {
+    margin-top: -380px;
+
+}
+
+
+/* ↓ Next Stuge h2アニメーション↓ */ 
+
+.h2anime {
+    color: transparent;
+  }
+
+.nextstage-h2 {
+    margin-left: 20px;
+}
+.nen {/*一文字ずつ遅延させる*/
+    top: 0%;
+    left: 0%;
+  
+ }   
+.nee {
+    top: 0%;
+    left: 6.3%;  
+ }   
+.nex {
+    top: 0%;
+    left: 10.1%;
+ }   
+.nt {
+     top: 29%;
+     left: 13.7%;
+  }
+.ns{
+    top: 58%;
+    left: 18.5%;
+  }
+.nt2 {
+    top: 77%;
+    left: 22.5%;
+  }
+.na {
+    top: 58%;
+    left: 25.5%;
+  }
+.ng {
+    top: 27%;
+    left: 29.5%; 
+  }
+.ne {
+    top: 0%;
+    left: 33.5%;
+  }
+
+
+.thuginokouen{
+    margin-top: 30px;
+    margin-left: 0px;
+    padding-left: 30px;
+    font-size: 2.4vw;;
+}
+
+.next{
+    padding: 30px 0;
+    width: 100vw;
+    margin: 0 auto;
+    text-align: center; 
+    flex-direction:column;
+}
+
+.sethumei_pc { display: none }
+.sethumei_sp { 
+    margin: 0 auto;
+    font-size: 3.4vw;
+    line-height: 240%;
+    display: inline-block;
+    text-align: left;
+    /* width: 80vw; */
+    padding: 40px 80px;
+    display: block
+    
+
+}
+
+
+.kouen-title{
+    margin: 0 auto;
+    text-align: center;
+    width: 100vw;
+    margin-top: 140px;
+    order: 2;
+}
+
+.kouen-title h3 {
+    margin-left: 0px;
+    margin-bottom: 20px;
+    font-size: 7.3vw;
+
+}
+.next-pic {
+    margin-top: 60px;
+   height: 50%;
+   order: 1;
+  
+}
+
+.nichiji {
+    margin-top: 8px;
+    text-align: left;
+    padding: 0 40px;
+    font-size: 3.1vw;
+    line-height: 160%;
+    width: 80vw;
+    margin: 0 auto;
+  
+}
+
+.toushoses {
+    margin-top: 120px;
+    margin-left: 50px;
+}
+/* dance-studio_mv */
+
+.dance-studio_mv video{
+    width: 100vw;
+    height: auto; 
+    margin-top: -50px;
+}
+
+/* ↓ Dance Studio↓ */ 
+#dance-studio {
+    margin-top: -20px;
+}
+
+/* ↓ dance-studio h2アニメーション↓ */ 
+
+.dancestudio-h2 {
+    margin-left: 20px;
+}
+.dad {/*一文字ずつ遅延させる*/
+    top: 0%;
+    left: 0%;
+ }   
+  .daa {
+    top: 0%;
+    left: 6%;
+ }   
+  .dan {
+    top: 0%;
+    left: 10%;
+ }   
+  .dac {
+    top: 0%;
+    left: 14.5%;
+  }
+  .dae{
+    top: 0%;
+    left: 18%;
+  }
+  .das {
+    top: 0%;
+    left: 24%;
+  }
+  .dt {
+    top: 22%;
+    left: 28%;
+  }
+  .du {
+    top: 54%;
+    left: 31%;
+  }
+  .dd {
+    top: 70%;
+    left: 35%;
+  }
+  .di {
+    top: 50%;
+    left: 39.5%;
+  }
+  .do {
+    top: 20%;
+    left: 42.5%;
+}
+.cozy-about {
+    display: none;
+}
+
+.cozy-about_sp{
+    margin-top: 15px;
+    margin-left: 0px;
+    padding-left: 30px;
+    font-size: 2.4vw;
+    display: block;
+}
+.studui-two {
+    flex-direction:column;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    width: 100vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px 0;
+    text-align: center;
+    width: 80vw;
+    /* background-color: rgb(223, 21, 196,0.5); */
+}
+
+.sutudio-sethumei {
+    order: 2;
+    margin-top: 50px;
+    font-size: 3.4vw;
+    line-height: 240%;
+    display: inline-block;
+    text-align: left;
+    padding: 0 px;
+}
+.studio-pic {
+    order: 1;
+   margin-left: 0px;
+
+}
+
+/* ▼ボタン設定▼ */
+/* ボタン ホバー前*/
+
+.btn {
+    font-size: 4.3vw;
+}
+.view-button {
+
+    font-size: 1.8em;
+    display: block;
+    margin-top: -15px;
+    position: relative;
+  
+}
+
+
+.view-button a {
+    color: #fff;
+    text-decoration: none;
+}
+.btn-pic {
+    margin-top: -20px;
+    margin-left: -18px;
+    width: 124%;
+}
+/* faq_mv */
+.faq_mv video{
+    width: 100vw;
+    height: auto; 
+    margin-top: 0px;
+}
+
+
+.yoshie {
+    position: relative;
+    /* background-color: rgb(255, 174, 0); */
+}
+.yoshie img{
+    width: 75%;
+    margin-top: 40px;
+    margin-left: 65px;
+}
+
+/* FAQ */
+#faq {
+    margin-top: -660px;
+    
+}
+
+.faf.startanime {
+    left: 0%;
+  
+ }   
+.faa.startanime {
+    left: 3.8%;
+ }   
+.fq.startanime {
+    left: 10%;
+ }   
+
+#faq h2 {
+    margin-left: 20px;
+}
+
+.yokuaru {
+    margin-top: 30px;
+    margin-left: 30px;
+    font-size: 2.4vw;
+}
+.question {
+    display: none;
+}
+.question_sp {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 5%;
+}
+.accordion-wrap{
+    border-bottom: 1px solid #fff;
+}
+
+.accordion-item{
+  width: 100%;
+  margin: 0 auto;
+  cursor: pointer;
+
+  margin-top: 30px;
+}
+
+.accordion-header{
+  transition: ease-in-out 100ms;
+  font-size: 3.4vw;
+  line-height: 170%;
+  width: 90%;
+  padding-bottom: 10px;
+}
+
+.accordion-text{
+  width: 100%;
+  display: none;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  font-size: 3.4vw;
+  line-height: 170%;
+ }
+
+ .fas{
+  transition: ease-in-out 300ms;
+  width: 35px;
+  height: 35px;
+  color: #fff;
+
+ }
+
+ .rotate-fas{
+  transform:rotateX(180deg);
+  transform: fa-flip-vertical;
+ }
+
+ .accordion-header {
+     position: relative;
+     align-items: center;
+     display: flex;
+    
+ }
+
+ .accordion-header .fas{
+  /* float: right; */
+  line-height: 35px;
+  color: #fff;
+  font-size: 120%;
+  position: absolute;
+  left: 100%;
+ }
+
+
+
+
+ .accordion-no-bar{
+  border-bottom: 0;
+}
+
+.nemuru img {
+    z-index: -10;
+   position: absolute;
+   top: 100%;
+   left: 20%;
+}
+
+
+/* contact_mv */
+.contact_mv video{
+    width: 100vw;
+    height: auto; 
+    margin-top: 230px;
+}
+
+
+.aogu {
+    margin-left: -80px;
+    margin-top: 20px;
+    width: 120%;
+}
+
+/* ↓ Contact↓ */ 
+
+#contact h2 {
+    margin-left: 20px;
+}
+/* ↓ Contact h2アニメーション↓ */ 
+
+
+.coc {
+    left: 0%;
+ }   
+.coo {
+    left: 6.3%;
+ }   
+.cn {
+    left: 10.7%;
+ }   
+.ct {
+    left: 15.2%;  
+}
+.ca{
+left: 18.5%;
+}
+.cc {
+left: 22.9%;
+}
+.ct2{
+left: 26.5%;
+}
+  
+.otoiawase {
+    margin-top: 22px;
+    margin-left: 30px;
+}
+.hissujikou {
+    font-size: 2.4vw;
+}
+
+.asuta {
+    font-size: 3vw;
+}
+.pic3 {
+    display: flex;
+    justify-content: center; 
+    margin:80px 0px 70px 0px;
+    width: 100vw;
+  
+}
+
+.form {
+    margin-left: 0px;
+    line-height: 300%;
+    margin-top: -20px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+    /* background-color: rgb(143, 22, 22); */
+}
+
+
+.btn2 {
+    font-size: 0.9em
+}
+
+.form .submit_btn {
+    margin-left: auto;
+    margin-right: auto;
+}
+#submit_img_wrapper {
+    width: 280px;
+    height: 50px;
+  
+}
+.btn2 {
+    font-size: 0.7em;
+}
+input,placeholder{
+    font-size: 2.2vw;
+}
+input,textarea {
+    font-size: 2.2vw;
+}
+
+/* footer */
+/* .top img {
+    position: fixed;
+    right: 10%;
+    bottom: ;
+    right: 5%;
+    bottom: 160%;
+} */
+.top{
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    right: 0;
+    bottom: 50px;
+    opacity: 1;
+  }
+  .top img{
+    width: 40px;
+    height: 40px;
+    right: 30px;
+    bottom: 50px;
+    position: relative;
+    display: block;
+
+   
+  }
+  .top img::before{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -5px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+  }
+
+} 
+
+/* -------------------- */
+/* ipadとスマホ分ける場合
+/* -------------------- */
+
+
+
+@media (max-width:428px) {  
+/* -------------------- */
+/* ローディング 
+/* -------------------- */  
+    #loading {
+        top: -90px;
+        left: 0;
+       
+        
+    }
+
+  
+    #loadingp {
+  
+        top: 70%;
+        height: 100px;
+        margin: 0 auto;
+        padding-left: 30px;
+        padding-right: 30px;
+        left: 0%
+       
+    }
+  
+
+
+/* -------------------- */
+/* 基本設定 スマホ
+/* -------------------- */
+/* 基本設定 PC*/
+
+
+     body{
+         font-size: 4.4vw;
+         line-height: 5.2vw;
+        
+     }
+ 
+
+
+/* -------------------- */
+/* h1 h2 h3 スマホ
+/* -------------------- */
+
+
+    h1{
+        font-size: 9.5vw;
+        line-height: 11vw;
+        position: absolute;
+        padding: 0 20px;
+    }
+    h2 {
+        font-size: 12vw;
+        font-family: 'Cormorant Infant', 'YuMincho','Hiragino Pro', 'YuGothic','Meiryo', serif;
+        letter-spacing: normal;
+        font-weight: 300;
+    }
+    h3 {
+        font-size: 9.4vw;
+        letter-spacing: normal;
+        
+    }
+/* -------------------- */
+/* ハンバーガーメニュー　スマホ
+/* -------------------- */
+    #global-nav {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    
+        
+    }
+    .t {
+        top: 75px;
+    }
+    .h {
+        top: 150px;
+    }
+    .n {
+        top: 225px;
+    }
+    .d {
+        top: 300px;
+    }
+    .f {
+        top: 375px;
+    }
+    .c {
+        top: 450px;
+    }
+  
+    .nav-list {
+        margin-top:0%;
+        margin-left: 0%;
+    }
+    .nav-list {
+        top: 100px;
+        left: 30px;
+        padding-left: 0px;
+    
+}
+    #global-nav li a {
+        
+      font-size: 12vw;
+     
+    }
+
+/* -------------------- */
+/* About_Us スマホ
+/* -------------------- */
+    .watashitati {
+        margin-top: 22px;
+        margin-left: 0px;
+        padding-left: 30px;
+        font-size: 3.3vw;
+
+    }
+    .kotowaza_sp {
+        top: 24.6%;
+        left: 4%;
+        font-size: 4.4vw;
+        line-height: 240%;
+    }
+
+    .ichigiichietoha {
+        top: 21%;
+        left: 4%;
+        font-size: 9vw;
+
+    }
+
+    .aboutus_h2 {
+        margin-left: 0px;
+        padding-left: 20px;
+        position: relative;
+        /* background-color: rgb(189, 64, 64); */
+    }
+    
+    .aa{
+        animation-delay: 0.1s;
+        top: 0%;
+        left: 0%;
+    }
+    .ab{
+        animation-delay: 0.2s;
+        position: absolute;
+        top: 0%;
+        left: 4.5%;
+    }
+    .ao{
+        animation-delay: 0.3s;
+        position: absolute;
+        top: 24%;
+        left: 6.5%;
+        /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+    }
+
+    .au{
+        animation-delay: 0.4s;
+        position: absolute;
+        top: 52%;
+        left: 8.5%;
+        /* text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+    }
+    .at{
+        animation-delay: 0.5s;
+        position: absolute;
+        top: 78%;
+        left: 10.5%;
+        /* text-shadow: rgba(255, 255, 255, 0.7) 2px 2px 20px, rgba(255, 255, 255, 0.8) 2px 2px 20px; */
+    }
+    .aU{
+        animation-delay: 0.6s;
+        position: absolute;
+        top: 52%;
+        left: 12.5%;
+        /* text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px; */
+    }
+    .as{
+        animation-delay: 0.7s;
+        position: absolute;
+        top: 24%;
+        left: 15.5%;
+        /* text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px; */
+    }
+    .kokorozashi-div {
+        margin-top: 40px;
+    }
+
+    .box2 {
+    height: 100px;
+    }
+
+    .kokorozashi_mv video {
+        margin-top: 0px;
+    }
+    .aichi {
+        position: relative;
+        letter-spacing: -1vw;
+    }
+    .ago {
+        position: absolute;
+        left: 15.8%;
+    }
+    .ai {
+        position: absolute;
+        left: 24.5%;
+    }
+    
+    .achi {
+        position: absolute;
+        left: 32.5%;
+    }
+    .ae{
+        position: absolute;
+        left: 40.7%;
+    }
+    .ato {
+        position: absolute;
+        left: 48.8%;
+    }
+    .aha {
+        position: absolute;
+        left: 56.8%;
+    }
+    .kokorozashi_mv {
+        width: 100vw;
+        margin-top: -300px;
+    }
+
+
+ /* 高城由季 */
+
+   
+    .yuki_mv video{
+        width: 100vw;
+        height: auto; 
+    }
+    .kokorozashi {
+        top: 32%;
+        left: 18%;
+        
+    }
+    .kokorozashi-hiragana{
+        font-size: 7.2vw;
+    }
+    .kankoko {
+        font-size: 9.4vw;
+    }
+
+
+ 
+    .arabesuku {
+        display: none;
+    }
+
+
+    .taka_h2 {
+    margin-left: 20px;
+    position: relative;
+    height: 33.33px;
+    /* background-color: pink; */
+    }
+
+    .shusai {
+        margin-top: 5px;
+        margin-left: 0px;
+        padding-left: 30px;
+        font-size: 3.3vw;
+    }
+    .kokorozashi-div {
+        margin-top: 40px;
+    }
+
+    .kankoko {
+        font-size: 9.4vw;
+    }
+
+    .koko1 {
+        position: absolute;
+        left: 100%;
+    }
+    .koko2 {
+        position: absolute;
+        left: 140%;
+    }
+    .koro {
+        position: absolute;
+        left: 180%;
+    }
+    .koza {
+        position: absolute;
+        left: 220%;
+    }
+    .koshi  {
+        position: absolute;
+        left: 260%;
+    }
+    .kohaihun2 {
+        position: absolute;
+        left: 300%;
+    }
+
+    .inochi {
+        position: absolute;
+        top: 36.5%;
+        left: 18%;
+        padding-right: 20px;
+        font-size: 4.4vw;
+    }
+    .arabesuku {
+        position: absolute;
+        top: 77%;
+        left: 15%;
+        /* background-color: rgb(121, 25, 25); */
+    }
+    .k_pic2_sp { 
+        margin-top: -60px;
+    }
+
+    .takashiro-kanji {
+        margin-top: -147%;
+        margin-left: 48%; 
+        font-size: 9vw;
+    }
+    .frigana {
+        font-size: 4.3vw;
+        
+        margin-top: -138.2%;
+        margin-left: 53.5%;
+    }
+    .ids {
+  
+        margin-top: -106%;
+        margin-left: 0%;
+        font-size: 4.4vw;
+        line-height: 240%;
+        padding: 0 40px;
+    
+    }
+
+    .sensai_sp {
+     
+        margin-top: -78%;
+        margin-left: 0%;
+        font-size: 4.4vw;
+        line-height: 240%;
+        padding: 0 40px;
+    }
+    .tat {/*一文字ずつ遅延させる*/
+        top: 0%;
+        left: 0%;
+        
+     }   
+     .taa {
+        top: 0%;
+        left: 6.5%;
+        
+     }   
+     .tak {
+        top: 0%;
+        left: 13%;
+     }   
+     .taa2 {
+         top: 0%;
+         left: 19%;
+         
+      }
+     .tas {
+        top: 0%;
+        left: 25%;
+    
+        
+      }
+     .tah {
+        top: 10%;
+        left: 29%;
+        
+      }
+     .tai {
+        top: 26%;
+        left: 35.5%;
+        text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px;
+        
+      }
+      .tar {
+        top: 36%;
+        left: 39%;
+        text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px;
+        
+      }
+      .tao {
+        top: 57%;
+        left: 43.5%;
+        text-shadow: rgba(255, 255, 255, 0.7) 2px 2px 20px, rgba(255, 255, 255, 0.8) 2px 2px 20px;
+        
+      }
+      .taY {
+        top: 36%;
+        left: 51%;
+        text-shadow: rgba(255, 255, 255, 0.5) 2px 2px 20px, rgba(255, 255, 255, 0.6) 2px 2px 20px;
+        
+      }
+      .tau {
+        top: 26%;
+        left: 57.5%;
+        text-shadow: rgba(255, 255, 255, 0.4) 2px 2px 20px, rgba(255, 255, 255, 0.4) 2px 2px 20px;
+        
+      }
+      .tak2 {
+        top: 10%;
+        left: 64%;
+        
+      }
+      .tai2 {
+        left: 70.3%;
+        
+      }
+      .teacher {
+        width: 75%; 
+        margin-top: 87%;
+        margin-left: 5%;
+       
+    
+        /* background-color: rgb(32, 159, 243); */
+    
+    }
+    
+    /* box3 */
+    .box3 {
+        width: 100%;
+        height: 342px;
+        background-color:#000;
+    
+    }
+   /* ↓ History↓ */ 
+
+   #history {
+    margin-top: -340px;
+     }
+ 
+     .hi {
+     left: 9.8%;
+     }   
+     .hs {
+     left: 12.8%;
+     }   
+     .ht {
+         left: 16.8%; 
+     }
+     .ho{
+     left: 21.3%;
+     }
+     .hr {
+     left: 27.5%;
+ 
+     }
+     .hy {
+     left: 32.1%;
+     }
+     .slide_title {
+        margin-bottom: 20px;
+    }
+ 
+
+     .history_slider {
+        padding: 20px;
+        margin-top: -48px;
+    }
+    .hiyori img {
+        width: 70%;
+        margin-top: 54px;
+        margin-left: 130px;
+    
+    }
+    .kathudou {
+        margin-top: 20px;
+        font-size: 3.3vw;
+    }
+
+
+
+/* ↓ Next Stuge↓ */ 
+#next-stage {
+    margin-top: -380px;
+
+}
+
+
+/* ↓ Next Stuge h2アニメーション↓ */ 
+
+.h2anime {
+    color: transparent;
+  }
+
+.nextstage-h2 {
+    margin-left: 20px;
+}
+.nen {/*一文字ずつ遅延させる*/
+    top: 0%;
+    left: 0%;
+  
+ }   
+.nee {
+    top: 0%;
+    left: 9.3%;  
+ }   
+.nex {
+    top: 0%;
+    left: 14.9%;
+ }   
+.nt {
+     top: 29%;
+     left: 20.5%;
+  }
+.ns{
+    top: 58%;
+    left: 27%;
+  }
+.nt2 {
+    top: 77%;
+    left: 33%;
+  }
+.na {
+    top: 58%;
+    left: 37%;
+  }
+.ng {
+    top: 27%;
+    left: 43%; 
+  }
+.ne {
+    top: 0%;
+    left: 49%;
+  }
+
+
+.thuginokouen{
+    margin-top: 10px;
+    margin-left: 0px;
+    padding-left: 30px;
+    font-size: 3.3vw;;
+}
+
+.next{
+    padding: 0px;
+    text-align: initial; 
+}
+
+.sethumei_sp { 
+    font-size: 4.4vw;
+    line-height: 240%;
+    display: inline-block;
+    text-align: left;
+    padding: 8px 40px;
+    
+}
+
+
+.kouen-title{
+    width: 100vw;
+    margin-top: 60px;
+}
+
+.kouen-title h3 {
+    margin-left: 0px;
+    margin-bottom: 30px;
+    font-size: 9vw;
+    text-align: center;
+    margin-top: 10px;
+
+}
+.next-pic {
+    margin-top: 30px;
+   width: 80%;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.nichiji {
+    margin-top: 26px;
+    padding: 0 50px;
+    font-size: 4vw;
+    line-height: 200%;
+}
+
+.toushoses {
+    margin-top: 120px;
+    margin-left: 0px;
+}
+/* ↓ Dance Studio↓ */ 
+#dance-studio {
+    margin-top: -20px;
+}
+
+/* ↓ dance-studio h2アニメーション↓ */ 
+/* dance-studio_mv */
+
+.dance-studio_mv video{
+    margin-top: 30px;
+}
+ 
+  .daa {
+    top: 0%;
+    left: 9%;
+ }   
+  .dan {
+    top: 0%;
+    left: 15.5%;
+ }   
+  .dac {
+    top: 0%;
+    left: 21.5%;
+  }
+  .dae{
+    top: 0%;
+    left: 26.5%;
+  }
+  .das {
+    top: 0%;
+    left: 35%;
+  }
+  .dt {
+    top: 22%;
+    left: 41%;
+  }
+  .du {
+    top: 54%;
+    left: 45%;
+  }
+  .dd {
+    top: 70%;
+    left: 52%;
+  }
+  .di {
+    top: 50%;
+    left: 59%;
+  }
+  .do {
+    top: 20%;
+    left: 63%;
+}
+
+
+.cozy-about_sp{
+    margin-top: 3px;
+    font-size: 3.3vw;
+}
+.studui-two {
+    margin-top: 15px;
+    padding: 20px 0;
+}
+.sutudio-sethumei {display: none;}
+.sutudio-sethumei_sp {
+    order: 2;
+    display: block;
+    margin-top: 50px;
+    font-size: 4.4vw;
+    padding: 0 0px;
+    text-align: left;
+    line-height: 240%;
+}
+.studio-pic {
+    order: 1;
+   margin-left: 0px;
+
+}
+
+/* ▼ボタン設定▼ */
+/* ボタン ホバー前*/
+
+.btn {
+    font-size: 6.5vw;
+}
+.view-button {
+    margin-top: -14px;
+}
+
+.btn-pic {
+    margin-top: -22px;
+    margin-left: 21px;
+    width: 92%;
+}
+/* faq_mv */
+.faq_mv video{
+    margin-top: 50px;
+}
+
+.yoshie img{
+    width: 100vw;
+    margin-top: 00px;
+    margin-left: 0px;
+}
+
+/* FAQ */
+#faq {
+    margin-top: -567px;
+    
+}
+.question_sp {
+    width: 85%;
+}
+.accordion-wrap{
+    border-bottom: 0.75px solid #fff;
+}
+
+
+.faa.startanime {
+    left: 5.4%;
+ }   
+.fq.startanime {
+    left: 15%;
+ }   
+
+#faq h2 {
+    margin-left: 20px;
+}
+
+.yokuaru {
+    margin-top: 11px;
+    margin-left: 20px;
+    font-size: 3.3vw;
+}
+.accordion-header .fas{
+
+    left: 108%;
+   }
+
+.accordion-header span {
+    display: inline-block;
+    width: 99%;
+}
+
+
+
+.accordion-header{
+  font-size: 4.4vw;
+  line-height: 200%;
+  width: 85%;
+  padding-bottom: 10px;
+  justify-content: space-around;
+}
+
+.accordion-text{
+  font-size: 4.4vw;
+  line-height: 200%;
+  width: 85%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+ }
+
+
+.nemuru img {
+    z-index: -10;
+   position: absolute;
+   top: 100%;
+   left: 20%;
+}
+
+
+/* contact_mv */
+.contact_mv video{
+    margin-top: 30px;
+}
+
+
+.aogu {
+    margin-left: -130px;
+    margin-top: 40px;
+    width: 120%;
+}
+/* ↓ Contact↓ */ 
+/* #contact {
+    width: 100vw;
+} */
+#contact h2 {
+    margin-left: 20px;
+}
+/* ↓ Contact h2アニメーション↓ */ 
+
+
+.coc {
+    left: 0%;
+ }   
+.coo {
+    left: 9%;
+ }   
+.cn {
+    left: 15.5%;
+ }   
+.ct {
+    left: 22.2%;  
+}
+.ca{
+left: 26.7%;
+}
+.cc {
+left: 32.5%;
+}
+.ct2{
+left: 37.5%;
+}
+  
+.otoiawase {
+    margin-top: 15px;
+    font-size: 3.3vw;
+}
+.hissujikou {
+    font-size: 3.8vw;
+}
+
+.asuta {
+    font-size: 6vw;
+}
+.pic-1 {
+    /* padding-left: 10%; */
+    width: 20%;
+}
+
+.pic-2 {
+ 
+    margin: 0px 0px;
+    width: 20%;
+    
+}
+.pic-3 {
+    width: 20%;
+}
+
+.pic3 {
+
+    display: flex;
+    justify-content: space-around;
+    width: 94vw;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+
+  
+}
+
+.form {
+    margin-left: 0px;
+    line-height: 300%;
+    margin-top: -20px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+
+    /* background-color: rgb(143, 22, 22); */
+}
+
+.f1 input {
+    width: 80vw ;
+}
+.f2 input {
+    width: 80vw ;
+}
+
+.f3 input {
+    width: 80vw ;
+}
+
+.p4 {
+    width: 80vw ;
+}
+
+.btn2 {
+    font-size: 0.9em
+}
+
+.form .submit_btn {
+    margin-left: auto;
+    margin-right: auto;
+}
+#submit_img_wrapper {
+    width: 280px;
+    height: 50px;
+  
+}
+.btn2 {
+    font-size: 0.65em;
+}
+input,placeholder{
+    font-size: 3.8vw;
+}
+input,textarea {
+    font-size: 3.8vw;
+}
+/* ↓ Footer↓ */ 
+.inc {
+    font-size: 3.7vw;
+    left: 20px;
+    bottom: 90%;
+}
+
+.youtube img {
+    top: -60%;
+    left: 4%;
+}
+.facebook img {
+    top: -48%;
+    left: 25%;
+}
+.instagram img {
+    top: -57%;
+    left: 41%;
+}
+.snow {
+    display: none;
+}
+.snow_sp {
+    display: block;
+}
+
+.top{
+    width: 30px;
+    height: 30px;
+  }
+  .top img{
+    width: 30px;
+    height: 30px;
+    right: 30%;
+    bottom: 30%;
+   
+  }
+  .top img::before{
+    width: 15px;
+    height: 15px;
+    top: -5px;
+  }
+
+
+}
+
+
